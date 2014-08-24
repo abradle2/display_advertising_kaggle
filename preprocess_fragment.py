@@ -25,7 +25,7 @@ num_lines = 1000
 
 #Number of smaller files to create (always starting from top of 
 #test.csv)
-num_files = 2
+num_files = 100
 
 #################################################################
 #################################################################
@@ -49,8 +49,8 @@ with open(filename, 'r') as _file:
 		elif i == num_lines:
 			dataArray.append(row)	#So we don't skip this row
 			print "i = %s: writing file %s_%s.csv \n" %(i, file_prefix, num_files_written+1)
-			#output headers to small file
-			_fragmented_file = csv_path + file_prefix + "_%s.csv" %(num_files_written+1)
+			#output targets and data to the fragmented file
+			_fragmented_file = csv_path + file_prefix + "/" + file_prefix + "_%s.csv" %(num_files_written+1)
 			output = open(_fragmented_file, 'w')
 			for target_row in targetArray:
 				for target in target_row:
